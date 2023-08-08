@@ -1,0 +1,45 @@
+<section class="text-white-50 my-0 bg-dark">
+    <ul class="bg-dark">
+      <li class="col-lg-3">
+        Platform:
+        <select class="form-select-sm ms-2 d-inline w-50 text-dark" aria-label="Platform" [(ngModel)]="platform" (change)="filterGames()">
+          <option value="">All</option>
+          <option value="pc">PC</option>
+        </select>
+      </li>
+      <li class="col-lg-3">
+        Genre/Tag:
+        <select class="form-select-sm ms-2 d-inline w-50 text-dark" aria-label="Genre" [(ngModel)]="genre" (change)="filterGames()">
+          <option  value="">All</option>
+          <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+        </select>
+      </li>
+    </ul>
+    <hr />
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-12 p-3" *ngFor="let games of gamesData">
+        <a class="card bigger sec-bg-color text-muted" [routerLink]="['/details', games.id]">
+          <img
+            [src]="games.thumbnail"
+            class="card-img-top w-100"
+            alt="..."
+          />
+          <div class="card-body bg-dark">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="card-title">{{games.title}}</h5>
+              <button class="btn btn-sm btn-primary">Free</button>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <span><i class="fa-regular fa-square-plus"></i></span>
+              <!-- <span class="rounded p-1 bg-dark small-text">{{games.short_description}}</span> -->
+              <span>
+                <span class="rounded p-1 bg-dark small-text">{{games.genre}}</span
+                ><i class="fa-brands fa-windows px-3"></i
+              ></span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  

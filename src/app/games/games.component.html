@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</head>
+<body>
+<app-categories></app-categories>
+
+<div class="row bg-dark">
+  <div class="col-lg-3 col-md-6 col-12 p-3" *ngFor="let item of productDetails">
+    <a class="card bigger sec-bg-color text-muted" [routerLink]="['/details', item.id]">
+      <img
+        [src]="item.thumbnail"
+        class="card-img-top w-100"
+        alt="..."
+      />
+      <div class="card-body bg-dark">
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="card-title">{{item.title}}</h5>
+          <button class="btn btn-sm btn-primary">Free</button>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <span><i class="fa-regular fa-square-plus"></i></span>
+          <span class="rounded p-1 bg-dark small-text">{{item.short_description}}</span>
+          <span>
+            <span class="rounded p-1 bg-dark small-text">{{item.genre}}</span
+            ><i class="fa-brands fa-windows px-3"></i
+          ></span>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+
+  </body>
+  </html>
